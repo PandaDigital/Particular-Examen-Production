@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B00000000000000000000001 /* ParticularExamenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000001 /* ParticularExamenApp.swift */; };
+		B00000000000000000000002 /* ExamenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000002 /* ExamenStore.swift */; };
+		B00000000000000000000003 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000003 /* NotificationManager.swift */; };
+		B00000000000000000000004 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000004 /* RootView.swift */; };
+		B00000000000000000000005 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000005 /* DashboardView.swift */; };
+		B00000000000000000000006 /* MethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000006 /* MethodView.swift */; };
+		B00000000000000000000007 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000007 /* SettingsView.swift */; };
+		B00000000000000000000008 /* ExamenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000008 /* ExamenData.swift */; };
+		B00000000000000000000009 /* ExamenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* ExamenRepository.swift */; };
+		B0000000000000000000000A /* RecordFallIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000A /* RecordFallIntent.swift */; };
+		B0000000000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000D /* Assets.xcassets */; };
+		B0000000000000000000000C /* ParticularExamenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000B /* ParticularExamenWidget.swift */; };
+		B0000000000000000000000D /* ParticularExamenWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000C /* ParticularExamenWidgetBundle.swift */; };
+		B0000000000000000000000E /* ExamenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000008 /* ExamenData.swift */; };
+		B0000000000000000000000F /* ExamenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000009 /* ExamenRepository.swift */; };
+		B00000000000000000000010 /* RecordFallIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000000A /* RecordFallIntent.swift */; };
+		B00000000000000000000011 /* Particular Examen Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A00000000000000000000013 /* Particular Examen Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		H00000000000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D00000000000000000000000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D00000000000000000000002;
+			remoteInfo = "Particular Examen Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E00000000000000000000004 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B00000000000000000000011 /* Particular Examen Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000001 /* ParticularExamenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticularExamenApp.swift; sourceTree = "<group>"; };
+		A00000000000000000000002 /* ExamenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenStore.swift; sourceTree = "<group>"; };
+		A00000000000000000000003 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		A00000000000000000000004 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		A00000000000000000000005 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		A00000000000000000000006 /* MethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodView.swift; sourceTree = "<group>"; };
+		A00000000000000000000007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A00000000000000000000008 /* ExamenData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenData.swift; sourceTree = "<group>"; };
+		A00000000000000000000009 /* ExamenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamenRepository.swift; sourceTree = "<group>"; };
+		A0000000000000000000000A /* RecordFallIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordFallIntent.swift; sourceTree = "<group>"; };
+		A0000000000000000000000B /* ParticularExamenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticularExamenWidget.swift; sourceTree = "<group>"; };
+		A0000000000000000000000C /* ParticularExamenWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticularExamenWidgetBundle.swift; sourceTree = "<group>"; };
+		A0000000000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0000000000000000000000E /* AppInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppInfo.plist; sourceTree = "<group>"; };
+		A0000000000000000000000F /* ParticularExamen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ParticularExamen.entitlements; sourceTree = "<group>"; };
+		A00000000000000000000010 /* WidgetInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WidgetInfo.plist; sourceTree = "<group>"; };
+		A00000000000000000000011 /* ParticularExamenWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ParticularExamenWidget.entitlements; sourceTree = "<group>"; };
+		A00000000000000000000012 /* Particular Examen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Particular Examen.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000013 /* Particular Examen Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Particular Examen Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E00000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E00000000000000000000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C00000000000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000001 /* ParticularExamen */,
+				C00000000000000000000005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C00000000000000000000001 /* ParticularExamen */ = {
+			isa = PBXGroup;
+			children = (
+				C00000000000000000000002 /* App */,
+				C00000000000000000000003 /* Shared */,
+				C00000000000000000000004 /* Resources */,
+				C00000000000000000000006 /* Widget */,
+			);
+			path = ParticularExamen;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000002 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000001 /* ParticularExamenApp.swift */,
+				A00000000000000000000002 /* ExamenStore.swift */,
+				A00000000000000000000003 /* NotificationManager.swift */,
+				A00000000000000000000004 /* RootView.swift */,
+				A00000000000000000000005 /* DashboardView.swift */,
+				A00000000000000000000006 /* MethodView.swift */,
+				A00000000000000000000007 /* SettingsView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000003 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000008 /* ExamenData.swift */,
+				A00000000000000000000009 /* ExamenRepository.swift */,
+				A0000000000000000000000A /* RecordFallIntent.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000004 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000000D /* Assets.xcassets */,
+				A0000000000000000000000E /* AppInfo.plist */,
+				A0000000000000000000000F /* ParticularExamen.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000012 /* Particular Examen.app */,
+				A00000000000000000000013 /* Particular Examen Widget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C00000000000000000000006 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000000B /* ParticularExamenWidget.swift */,
+				A0000000000000000000000C /* ParticularExamenWidgetBundle.swift */,
+				A00000000000000000000010 /* WidgetInfo.plist */,
+				A00000000000000000000011 /* ParticularExamenWidget.entitlements */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D00000000000000000000001 /* Particular Examen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G00000000000000000000002 /* Build configuration list for PBXNativeTarget "Particular Examen" */;
+			buildPhases = (
+				E00000000000000000000001 /* Sources */,
+				E00000000000000000000002 /* Frameworks */,
+				E00000000000000000000003 /* Resources */,
+				E00000000000000000000004 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				I00000000000000000000001 /* PBXTargetDependency */,
+			);
+			name = "Particular Examen";
+			productName = "Particular Examen";
+			productReference = A00000000000000000000012 /* Particular Examen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D00000000000000000000002 /* Particular Examen Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = G00000000000000000000003 /* Build configuration list for PBXNativeTarget "Particular Examen Widget" */;
+			buildPhases = (
+				E00000000000000000000005 /* Sources */,
+				E00000000000000000000006 /* Frameworks */,
+				E00000000000000000000007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Particular Examen Widget";
+			productName = "Particular Examen Widget";
+			productReference = A00000000000000000000013 /* Particular Examen Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D00000000000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					D00000000000000000000001 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					D00000000000000000000002 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+				};
+			};
+			buildConfigurationList = G00000000000000000000001 /* Build configuration list for PBXProject "Particular Examen" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C00000000000000000000000;
+			productRefGroup = C00000000000000000000005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D00000000000000000000001 /* Particular Examen */,
+				D00000000000000000000002 /* Particular Examen Widget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E00000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000000000000000000000B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E00000000000000000000007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E00000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B00000000000000000000001 /* ParticularExamenApp.swift in Sources */,
+				B00000000000000000000002 /* ExamenStore.swift in Sources */,
+				B00000000000000000000003 /* NotificationManager.swift in Sources */,
+				B00000000000000000000004 /* RootView.swift in Sources */,
+				B00000000000000000000005 /* DashboardView.swift in Sources */,
+				B00000000000000000000006 /* MethodView.swift in Sources */,
+				B00000000000000000000007 /* SettingsView.swift in Sources */,
+				B00000000000000000000008 /* ExamenData.swift in Sources */,
+				B00000000000000000000009 /* ExamenRepository.swift in Sources */,
+				B0000000000000000000000A /* RecordFallIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E00000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0000000000000000000000C /* ParticularExamenWidget.swift in Sources */,
+				B0000000000000000000000D /* ParticularExamenWidgetBundle.swift in Sources */,
+				B0000000000000000000000E /* ExamenData.swift in Sources */,
+				B0000000000000000000000F /* ExamenRepository.swift in Sources */,
+				B00000000000000000000010 /* RecordFallIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		I00000000000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D00000000000000000000002 /* Particular Examen Widget */;
+			targetProxy = H00000000000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F00000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F00000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F00000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ParticularExamen/Resources/ParticularExamen.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = DXX4R3U45T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ParticularExamen/Resources/AppInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philreichner.ParticularExamen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F00000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ParticularExamen/Resources/ParticularExamen.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DXX4R3U45T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ParticularExamen/Resources/AppInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philreichner.ParticularExamen;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F00000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ParticularExamen/Widget/ParticularExamenWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DXX4R3U45T;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ParticularExamen/Widget/WidgetInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philreichner.ParticularExamen.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F00000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ParticularExamen/Widget/ParticularExamenWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DXX4R3U45T;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ParticularExamen/Widget/WidgetInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.philreichner.ParticularExamen.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		G00000000000000000000001 /* Build configuration list for PBXProject "Particular Examen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000000001 /* Debug */,
+				F00000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G00000000000000000000002 /* Build configuration list for PBXNativeTarget "Particular Examen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000000003 /* Debug */,
+				F00000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		G00000000000000000000003 /* Build configuration list for PBXNativeTarget "Particular Examen Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000000005 /* Debug */,
+				F00000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D00000000000000000000000 /* Project object */;
+}
