@@ -261,43 +261,71 @@ struct FallCounterCard: View {
 struct DailyMethodCard: View {
     @EnvironmentObject private var store: ExamenStore
 
+    @State private var showingYesterday = false
+
+    private var selectedDate: Date {
+        let today = Calendar.current.startOfDay(for: Date())
+        return Calendar.current.date(byAdding: .day, value: showingYesterday ? -1 : 0, to: today) ?? today
+    }
+
+    private var record: DayRecord {
+        store.data.record(for: selectedDate) ?? DayRecord(day: selectedDate)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("TODAY’S THREE MOVEMENTS")
+            Text(showingYesterday ? "YESTERDAY’S THREE MOVEMENTS" : "TODAY’S THREE MOVEMENTS")
                 .font(.caption.weight(.bold))
                 .tracking(1.7)
                 .foregroundStyle(store.accent)
                 .padding(.bottom, 12)
 
+            Picker("Check-in day", selection: $showingYesterday) {
+                Text("Today").tag(false)
+                Text("Yesterday").tag(true)
+            }
+            .pickerStyle(.segmented)
+            .padding(.bottom, 12)
+
+            if showingYesterday {
+                Text(selectedDate.formatted(date: .complete, time: .omitted))
+                    .font(.subheadline)
+                    .foregroundStyle(ExamenPalette.secondaryText)
+                Text("Complete a missed check-in using yesterday’s recorded falls. The midday count uses your midday reminder time.")
+                    .font(.caption)
+                    .foregroundStyle(ExamenPalette.quietText)
+                    .padding(.top, 4)
+            }
+
             PhaseRow(
                 number: "I",
                 title: "Morning resolve",
                 detail: "Name the fault and ask for grace.",
-                completed: store.today.morningResolved,
+                completed: record.morningResolved,
                 accent: store.accent,
-                action: store.completeMorning
+                action: { store.completeMorning(on: selectedDate) }
             )
             Divider().overlay(Color.white.opacity(0.12))
             PhaseRow(
                 number: "II",
                 title: "Midday count",
-                detail: store.today.middayCompleted
-                    ? "Morning: \(store.today.morningFalls ?? 0) falls"
+                detail: record.middayCompleted
+                    ? "Morning: \(record.morningFalls ?? 0) falls"
                     : "Count the falls since morning.",
-                completed: store.today.middayCompleted,
+                completed: record.middayCompleted,
                 accent: store.accent,
-                action: store.completeMidday
+                action: { store.completeMidday(on: selectedDate) }
             )
             Divider().overlay(Color.white.opacity(0.12))
             PhaseRow(
                 number: "III",
                 title: "Evening count",
-                detail: store.today.eveningCompleted
-                    ? "Afternoon: \(store.today.afternoonFalls ?? 0) falls"
+                detail: record.eveningCompleted
+                    ? "Afternoon: \(record.afternoonFalls ?? 0) falls"
                     : "Count again and compare the lines.",
-                completed: store.today.eveningCompleted,
+                completed: record.eveningCompleted,
                 accent: store.accent,
-                action: store.completeEvening
+                action: { store.completeEvening(on: selectedDate) }
             )
         }
         .padding(18)

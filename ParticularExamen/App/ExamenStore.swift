@@ -51,19 +51,29 @@ final class ExamenStore: ObservableObject {
         }
     }
 
-    func completeMorning() {
-        updateToday { $0.morningResolved = true }
+    func completeMorning(on date: Date = Date()) {
+        updateDay(date) { $0.morningResolved = true }
     }
 
-    func completeMidday() {
-        updateToday {
+    func completeMidday(on date: Date = Date()) {
+        let calendar = Calendar.current
+        let cutoff = calendar.date(bySettingHour: data.notifications.middayHour,
+                                   minute: data.notifications.middayMinute, second: 0, of: date) ?? date
+        updateDay(date) {
+            guard !$0.middayCompleted else { return }
             $0.middayCompleted = true
-            $0.morningFalls = $0.totalFalls
+            $0.morningFalls = calendar.isDateInToday(date)
+                ? $0.totalFalls
+                : $0.fallDates.filter { $0 < cutoff }.count
+            if $0.eveningCompleted {
+                $0.afternoonFalls = max(0, $0.totalFalls - ($0.morningFalls ?? 0))
+            }
         }
     }
 
-    func completeEvening() {
-        updateToday {
+    func completeEvening(on date: Date = Date()) {
+        updateDay(date) {
+            guard !$0.eveningCompleted else { return }
             $0.eveningCompleted = true
             let morning = $0.morningFalls ?? 0
             $0.afternoonFalls = max(0, $0.totalFalls - morning)
@@ -76,7 +86,15 @@ final class ExamenStore: ObservableObject {
     }
 
     private func updateToday(_ change: (inout DayRecord) -> Void) {
-        let day = Calendar.current.startOfDay(for: Date())
+        updateDay(Date(), change)
+    }
+
+    private func updateDay(_ date: Date, _ change: (inout DayRecord) -> Void) {
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else { return }
+        let day = calendar.startOfDay(for: date)
+        guard day >= yesterday && day <= today else { return }
         if let index = data.records.firstIndex(where: { Calendar.current.isDate($0.day, inSameDayAs: day) }) {
             change(&data.records[index])
         } else {

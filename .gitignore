@@ -1,0 +1,9 @@
+.DS_Store
+xcuserdata/
+DerivedData/
+build/
+.codex/
+
+# Personal documents kept alongside the project
+Phillip Reichner Cover Letter CSU Global.docx
+Phillip Reichner Resume CSU Global.docx
