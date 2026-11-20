@@ -3,6 +3,7 @@ import SwiftUI
 struct DashboardView: View {
     @EnvironmentObject private var store: ExamenStore
     @State private var selectedSheet: Sheet?
+    @State private var selectedDate = Calendar.current.startOfDay(for: Date())
 
     enum Sheet: Identifiable {
         case method, settings, viceSelection
@@ -15,8 +16,8 @@ struct DashboardView: View {
                 VStack(spacing: 22) {
                     dashboardHeader
                     FallCounterCard()
-                    DailyMethodCard()
-                    WeekTracker(data: store.data, accent: store.accent)
+                    DailyMethodCard(selectedDate: selectedDate)
+                    WeekTracker(data: store.data, accent: store.accent, selectedDate: $selectedDate)
                     FallHistoryCard(data: store.data, accent: store.accent)
                     commitmentCard
                 }
@@ -261,12 +262,7 @@ struct FallCounterCard: View {
 struct DailyMethodCard: View {
     @EnvironmentObject private var store: ExamenStore
 
-    @State private var showingYesterday = false
-
-    private var selectedDate: Date {
-        let today = Calendar.current.startOfDay(for: Date())
-        return Calendar.current.date(byAdding: .day, value: showingYesterday ? -1 : 0, to: today) ?? today
-    }
+    let selectedDate: Date
 
     private var record: DayRecord {
         store.data.record(for: selectedDate) ?? DayRecord(day: selectedDate)
@@ -274,28 +270,17 @@ struct DailyMethodCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(showingYesterday ? "YESTERDAY’S THREE MOVEMENTS" : "TODAY’S THREE MOVEMENTS")
+            Text("THREE MOVEMENTS")
                 .font(.caption.weight(.bold))
                 .tracking(1.7)
                 .foregroundStyle(store.accent)
                 .padding(.bottom, 12)
 
-            Picker("Check-in day", selection: $showingYesterday) {
-                Text("Today").tag(false)
-                Text("Yesterday").tag(true)
-            }
-            .pickerStyle(.segmented)
-            .padding(.bottom, 12)
-
-            if showingYesterday {
-                Text(selectedDate.formatted(date: .complete, time: .omitted))
-                    .font(.subheadline)
-                    .foregroundStyle(ExamenPalette.secondaryText)
-                Text("Complete a missed check-in using yesterday’s recorded falls. The midday count uses your midday reminder time.")
-                    .font(.caption)
-                    .foregroundStyle(ExamenPalette.quietText)
-                    .padding(.top, 4)
-            }
+            Text(Calendar.current.isDateInToday(selectedDate)
+                 ? "Today"
+                 : selectedDate.formatted(date: .complete, time: .omitted))
+                .font(.subheadline)
+                .foregroundStyle(ExamenPalette.secondaryText)
 
             PhaseRow(
                 number: "I",
@@ -372,6 +357,7 @@ struct PhaseRow: View {
 struct WeekTracker: View {
     let data: ExamenData
     let accent: Color
+    @Binding var selectedDate: Date
     private let calendar = Calendar.current
 
     private var days: [Date] {
@@ -393,22 +379,37 @@ struct WeekTracker: View {
             }
             HStack {
                 ForEach(days, id: \.self) { day in
-                    VStack(spacing: 8) {
-                        Text(day.formatted(.dateTime.weekday(.narrow)))
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(ExamenPalette.secondaryText)
-                        ZStack {
-                            Circle().stroke(ExamenPalette.quietText.opacity(0.65), lineWidth: 2)
-                            if data.record(for: day)?.isComplete == true {
-                                Circle().fill(accent)
-                                Image(systemName: "checkmark")
-                                    .font(.caption2.weight(.black))
-                                    .foregroundStyle(ExamenPalette.background)
+                    Button {
+                        selectedDate = day
+                    } label: {
+                        VStack(spacing: 8) {
+                            Text(day.formatted(.dateTime.weekday(.narrow)))
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(ExamenPalette.secondaryText)
+                            ZStack {
+                                Circle().stroke(ExamenPalette.quietText.opacity(0.65), lineWidth: 2)
+                                if data.record(for: day)?.isComplete == true {
+                                    Circle().fill(accent)
+                                    Image(systemName: "checkmark")
+                                        .font(.caption2.weight(.black))
+                                        .foregroundStyle(ExamenPalette.background)
+                                }
+                            }
+                            .frame(width: 29, height: 29)
+                            .padding(5)
+                            .overlay {
+                                Circle().stroke(calendar.isDate(day, inSameDayAs: selectedDate)
+                                                ? accent : .clear, lineWidth: 2)
                             }
                         }
-                        .frame(width: 29, height: 29)
+                        .frame(maxWidth: .infinity, minHeight: 60)
+                        .contentShape(Rectangle())
                     }
-                    .frame(maxWidth: .infinity)
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(day.formatted(date: .complete, time: .omitted))
+                    .accessibilityValue(data.record(for: day)?.isComplete == true ? "Completed" : "Incomplete")
+                    .accessibilityAddTraits(calendar.isDate(day, inSameDayAs: selectedDate) ? .isSelected : [])
+                    .accessibilityHint("Shows the three movements for this day")
                 }
             }
             Divider().overlay(accent.opacity(0.35))

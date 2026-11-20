@@ -92,9 +92,8 @@ final class ExamenStore: ObservableObject {
     private func updateDay(_ date: Date, _ change: (inout DayRecord) -> Void) {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        guard let yesterday = calendar.date(byAdding: .day, value: -1, to: today) else { return }
         let day = calendar.startOfDay(for: date)
-        guard day >= yesterday && day <= today else { return }
+        guard day <= today else { return }
         if let index = data.records.firstIndex(where: { Calendar.current.isDate($0.day, inSameDayAs: day) }) {
             change(&data.records[index])
         } else {
